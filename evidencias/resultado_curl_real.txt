@@ -1,0 +1,20 @@
+=== GET /health ===
+{"status":"ok","model_loaded":true,"model_version":"1.0.0"}
+HTTP 200
+
+=== POST /predict (entrada valida) ===
+{"class_id":0,"prediction":"maligno","confidence":0.876,"probabilities":{"maligno":0.876,"benigno":0.124},"model_version":"1.0.0"}
+HTTP 200
+
+=== POST /predict/batch (2 registros) ===
+[{"class_id":0,"prediction":"maligno","confidence":0.876,"probabilities":{"maligno":0.876,"benigno":0.124},"model_version":"1.0.0"},{"class_id":1,"prediction":"benigno","confidence":0.871918,"probabilities":{"maligno":0.128082,"benigno":0.871918},"model_version":"1.0.0"}]
+HTTP 200
+
+=== POST /predict (entrada invalida, espera 422) ===
+{"detail":[{"type":"too_short","loc":["body","features"],"msg":"List should have at least 30 items after validation, not 3","input":[1,2,3],"ctx":{"field_type":"List","min_length":30,"actual_length":3}}]}
+HTTP 422
+
+=== GET /metrics ===
+{"requests_total":4,"errors_total":1,"error_rate":0.25,"avg_latency_ms":16.843,"by_status":{"200":3,"422":1},"scope":"memory_per_process"}
+HTTP 200
+

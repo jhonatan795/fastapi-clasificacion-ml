@@ -1,0 +1,247 @@
+{
+  "info": {
+    "name": "API REST - Clasificacion FastAPI",
+    "description": "Coleccion academica de pruebas. Iniciar API local antes de ejecutar.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://127.0.0.1:8000"
+    }
+  ],
+  "item": [
+    {
+      "name": "Salud",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/health",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "health"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Código HTTP esperado 200\", function() { pm.response.to.have.status(200); });"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Esquema",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/schema",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "schema"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Código HTTP esperado 200\", function() { pm.response.to.have.status(200); });"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Ejemplo",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/example",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "example"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Código HTTP esperado 200\", function() { pm.response.to.have.status(200); });"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Predicción individual",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/predict",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "predict"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"features\": [\n    19.55,\n    28.77,\n    133.6,\n    1207.0,\n    0.0926,\n    0.2063,\n    0.1784,\n    0.1144,\n    0.1893,\n    0.06232,\n    0.8426,\n    1.199,\n    7.158,\n    106.4,\n    0.006356,\n    0.04765,\n    0.03863,\n    0.01519,\n    0.01936,\n    0.005252,\n    25.05,\n    36.27,\n    178.6,\n    1926.0,\n    0.1281,\n    0.5329,\n    0.4251,\n    0.1941,\n    0.2818,\n    0.1005\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Código HTTP esperado 200\", function() { pm.response.to.have.status(200); });"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Predicción lote",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/predict/batch",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "predict",
+            "batch"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"instances\": [\n    {\n      \"features\": [\n        19.55,\n        28.77,\n        133.6,\n        1207.0,\n        0.0926,\n        0.2063,\n        0.1784,\n        0.1144,\n        0.1893,\n        0.06232,\n        0.8426,\n        1.199,\n        7.158,\n        106.4,\n        0.006356,\n        0.04765,\n        0.03863,\n        0.01519,\n        0.01936,\n        0.005252,\n        25.05,\n        36.27,\n        178.6,\n        1926.0,\n        0.1281,\n        0.5329,\n        0.4251,\n        0.1941,\n        0.2818,\n        0.1005\n      ]\n    },\n    {\n      \"features\": [\n        19.55,\n        28.77,\n        133.6,\n        1207.0,\n        0.0926,\n        0.2063,\n        0.1784,\n        0.1144,\n        0.1893,\n        0.06232,\n        0.8426,\n        1.199,\n        7.158,\n        106.4,\n        0.006356,\n        0.04765,\n        0.03863,\n        0.01519,\n        0.01936,\n        0.005252,\n        25.05,\n        36.27,\n        178.6,\n        1926.0,\n        0.1281,\n        0.5329,\n        0.4251,\n        0.1941,\n        0.2818,\n        0.1005\n      ]\n    }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Código HTTP esperado 200\", function() { pm.response.to.have.status(200); });"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Entrada inválida (422)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/predict",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "predict"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"features\": [\n    1,\n    2,\n    3\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Código HTTP esperado 422\", function() { pm.response.to.have.status(422); });"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Indicadores",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/metrics",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "metrics"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Código HTTP esperado 200\", function() { pm.response.to.have.status(200); });"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "accuracy": 0.94737,
+  "precision_macro": 0.94345,
+  "recall_macro": 0.94345,
+  "f1_macro": 0.94345,
+  "matriz_confusion_0_maligno_1_benigno": [
+    [
+      39,
+      3
+    ],
+    [
+      3,
+      69
+    ]
+  ],
+  "n_train": 455,
+  "n_test": 114
+}
