@@ -199,18 +199,3 @@ Al mismo tiempo, se observó que una predicción técnicamente correcta no impli
 - Pydantic, modelos y validación: https://docs.pydantic.dev/latest/
 - Google Colab: https://colab.research.google.com/
 
-## 11. Cómo publicar posteriormente el repositorio en GitHub
-
-Si el profesor pide un enlace público de GitHub, primero crea un repositorio vacío en tu cuenta. En la carpeta descomprimida ejecuta:
-
-```bash
-git init
-git add .
-git commit -m "API de clasificación FastAPI - Toma de Decisiones"
-git branch -M main
-# Reemplaza la dirección de ejemplo por la URL real de TU repositorio:
-git remote add origin https://github.com/TU_USUARIO/TU_REPOSITORIO.git
-git push -u origin main
-```
-
-*Nota:* el repositorio se entrega comprimido en ZIP para su carga posterior a GitHub; **no se ha publicado una URL de GitHub** ni alojado una API pública.
